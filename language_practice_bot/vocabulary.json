@@ -1,0 +1,12 @@
+{
+    "hello": {"Spanish": "hola", "French": "bonjour"},
+    "goodbye": {"Spanish": "adiós", "French": "au revoir"},
+    "please": {"Spanish": "por favor", "French": "s'il vous plaît"},
+    "thank you": {"Spanish": "gracias", "French": "merci"},
+    "yes": {"Spanish": "sí", "French": "oui"},
+    "no": {"Spanish": "no", "French": "non"},
+    "sorry": {"Spanish": "lo siento", "French": "désolé"},
+    "excuse me": {"Spanish": "disculpe", "French": "excusez-moi"},
+    "water": {"Spanish": "agua", "French": "eau"},
+    "food": {"Spanish": "comida", "French": "nourriture"}
+}
