@@ -1,6 +1,10 @@
+Here's an updated README file to fit your project with the new levels and XP-like progress tracking:
+
+---
+
 # Language Practice Bot
 
-Welcome to the **Language Practice Bot**! This is a Python application that helps you practice translating English words into other languages through a friendly graphical user interface (GUI). It's a fun and interactive way to enhance your vocabulary in Spanish, French, German, and Italian.
+Welcome to the **Language Practice Bot**! This is a Python application designed to help you practice translating English words into other languages through a fun, interactive graphical user interface (GUI). Improve your vocabulary in Spanish, French, German, and Italian, progressing through multiple skill levels from Beginner to Fluent!
 
 ## Repository
 
@@ -27,11 +31,13 @@ GitHub Repository: [https://github.com/Mohamadaliibrahim/language_practice_bot.g
 ## Features
 
 - **Multi-language Support**: Practice translations in Spanish, French, German, and Italian.
+- **Four Levels of Difficulty**: Progress through Beginner, Intermediate, Advanced, and Fluent levels, each with 15 questions.
+- **XP-Style Progress Bar**: Visual progress indicator tracks your advancement within each level, adding a game-like feel.
 - **Graphical User Interface**: User-friendly GUI built with Tkinter.
-- **Randomized Questions**: Words are randomly selected to challenge your memory.
+- **Randomized Questions**: Words are randomly selected for each session to enhance learning and recall.
 - **Multiple Choice Questions**: Each question offers multiple options to choose from.
 - **Immediate Feedback**: Get instant feedback on your answers.
-- **Progress Tracking**: See your score at the end of the quiz.
+- **Progress Tracking and Score Display**: See your score at the end of each level and overall quiz.
 - **Option to Stop Quiz**: You can stop the quiz at any time and view your results.
 
 ---
@@ -124,6 +130,7 @@ No additional Python packages are required for this project.
 
    - **Welcome Screen**: Click the **Start** button to begin.
    - **Select Language**: Choose the language you want to practice.
+   - **Levels and XP Progression**: Answer 15 questions per level, starting from Beginner and progressing to Fluent. A progress bar will track your progress within each level.
    - **Answer Questions**: Select the correct translation for each English word presented.
    - **Get Feedback**: After each question, you'll receive immediate feedback.
    - **Stop Quiz**: You can click the **Stop Quiz** button at any time to end the quiz and see your results.
