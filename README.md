@@ -157,52 +157,9 @@ The vocabulary is stored in the `vocabulary.json` file. You can expand or modify
 
 ---
 
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
-
-1. **Fork the Repository**: Click the **Fork** button on the GitHub repository page.
-
-2. **Clone Your Fork**:
-
-   ```bash
-   git clone https://github.com/your-username/language_practice_bot.git
-   ```
-
-3. **Create a New Branch**:
-
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-4. **Make Your Changes**: Enhance features, fix bugs, or improve documentation.
-
-5. **Commit Your Changes**:
-
-   ```bash
-   git commit -am 'Add your commit message here'
-   ```
-
-6. **Push to Your Fork**:
-
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-7. **Submit a Pull Request**: Go to the original repository and submit a pull request.
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## Acknowledgements
 
 - **Tkinter**: For providing the GUI framework.
-- **Contributors**: Thanks to everyone who has contributed to this project.
 - **Language Learners**: Inspired by those who are passionate about learning new languages.
 
 ---
@@ -210,5 +167,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Feel free to contact me if you have any questions or suggestions!
 
 ---
-
-*This README was generated to provide clear instructions and information about the Language Practice Bot project.*
