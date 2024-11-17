@@ -1,4 +1,3 @@
-from os import stat_result
 import tkinter as tk
 from tkinter import messagebox
 import random
@@ -46,7 +45,6 @@ def start_screen():
 
     # Clear the window
     for widget in root.winfo_children():
-
         widget.destroy()
 
     root.configure(bg=BG_COLOR)
@@ -57,7 +55,7 @@ def start_screen():
     instructions_label = tk.Label(root, text="Practice translating English words and progress through levels!", font=FONT_TEXT, bg=BG_COLOR, fg=FG_COLOR)
     instructions_label.pack(pady=10)
 
-    instructions_label = tk.Label(root, text="Done by Mohammad ali ibrahim", font=FONT_TEXT, bg=BG_COLOR, fg=FG_COLOR, )
+    instructions_label = tk.Label(root, text="Done by Mohammad ali ibrahim", font=FONT_TEXT, bg=BG_COLOR, fg=FG_COLOR)
     instructions_label.pack(pady=0)
     
     start_button = tk.Button(root, text="Start", font=FONT_BTN, bg=BTN_COLOR, fg=BTN_TEXT_COLOR, command=choose_language)
@@ -123,22 +121,29 @@ def ask_question():
             stat_result()
             return
 
+    # Check if there are any words left
+    if len(questions_asked) >= len(filtered_vocabulary):
+        stat_result()
+        return
+
     # Display level and XP progress
-    level_label = tk.Label(root, text=f"Level: {LEVELS[level_index]} ({total_questions % QUESTIONS_PER_LEVEL + 1}/{QUESTIONS_PER_LEVEL})", font=FONT_TEXT, bg=BG_COLOR, fg=FG_COLOR)
+    level_label = tk.Label(root, text=f"Level: {LEVELS[level_index]} ({(total_questions % QUESTIONS_PER_LEVEL) + 1}/{QUESTIONS_PER_LEVEL})", font=FONT_TEXT, bg=BG_COLOR, fg=FG_COLOR)
     level_label.pack(pady=10)
 
     # Choose a random word that hasn't been asked yet
-    current_word = random.choice(list(filtered_vocabulary.keys()))
-    while current_word in questions_asked:
-        current_word = random.choice(list(filtered_vocabulary.keys()))
+    available_words = [word for word in filtered_vocabulary.keys() if word not in questions_asked]
+    if not available_words:
+        stat_result()
+        return
+    current_word = random.choice(available_words)
     questions_asked.append(current_word)
 
     correct_translation = filtered_vocabulary[current_word][language]
 
     # Generate incorrect options
     all_translations = [
-        v[language] for v in filtered_vocabulary.values()
-        if v[language] != correct_translation
+        v[language] for k, v in filtered_vocabulary.items()
+        if v[language] != correct_translation and k != current_word
     ]
 
     num_options = min(3, len(all_translations))
@@ -162,7 +167,8 @@ def ask_question():
         option_button.pack(anchor='w', pady=5, padx=20, fill='x')
 
     # Display an XP-like progress bar
-    progress_bar = tk.Frame(root, bg=OPTION_COLOR, height=20, width=(400 * (total_questions % QUESTIONS_PER_LEVEL + 1)) // QUESTIONS_PER_LEVEL)
+    progress_width = (400 * ((total_questions % QUESTIONS_PER_LEVEL) + 1)) // QUESTIONS_PER_LEVEL
+    progress_bar = tk.Frame(root, bg=BTN_COLOR, height=20, width=progress_width)
     progress_bar.pack(pady=10, anchor='center')
     
     button_frame = tk.Frame(root, bg=BG_COLOR)
@@ -187,11 +193,27 @@ def check_answer(selected_option):
     if selected_option == correct_translation:
         score += 1
         messagebox.showinfo("Correct!", "Your answer is correct!")
+    else:
+        messagebox.showerror("Incorrect", f"Wrong answer.\nThe correct translation is '{correct_translation}'.")
+
+    # After checking the answer, decide whether to continue or show results
+    if total_questions >= len(filtered_vocabulary) or (total_questions >= (level_index + 1) * QUESTIONS_PER_LEVEL and level_index >= len(LEVELS) - 1):
+        stat_result()
+    else:
+        ask_question()
+
+def stat_result():
+    # Clear the window
+    for widget in root.winfo_children():
+        widget.destroy()
 
     root.configure(bg=BG_COLOR)
 
-    result_label = tk.Label(root, text=f"You got {score} out of {total_questions} correct!", font=FONT_TITLE, bg=BG_COLOR, fg=FG_COLOR)
+    result_label = tk.Label(root, text=f"You completed the quiz!\nFinal Score: {score} out of {total_questions}", font=FONT_TITLE, bg=BG_COLOR, fg=FG_COLOR)
     result_label.pack(pady=30)
+
+    instructions_label = tk.Label(root, text="Done by Mohammad ali ibrahim", font=FONT_TEXT, bg=BG_COLOR, fg=FG_COLOR)
+    instructions_label.pack(pady=10)
 
     restart_button = tk.Button(root, text="Play Again", font=FONT_BTN, bg=BTN_COLOR, fg=BTN_TEXT_COLOR, command=start_screen)
     restart_button.pack(pady=10)
