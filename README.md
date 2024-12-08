@@ -6,12 +6,6 @@ Here's an updated README file to fit your project with the new levels and XP-lik
 
 Welcome to the **Language Practice Bot**! This is a Python application designed to help you practice translating English words into other languages through a fun, interactive graphical user interface (GUI). Improve your vocabulary in Spanish, French, German, and Italian, progressing through multiple skill levels from Beginner to Fluent!
 
-## Repository
-
-GitHub Repository: [https://github.com/Mohamadaliibrahim/language_practice_bot.git](https://github.com/Mohamadaliibrahim/language_practice_bot.git)
-
----
-
 ## Table of Contents
 
 - [Features](#features)
